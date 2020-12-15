@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <style>
+    .position-list-move {
+      transition: transform 0.4s ease;
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -31,6 +35,7 @@
   <!-- Custom styles for this template -->
   <link href="cover.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@3.0.4/dist/vue.global.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
 </head>
 
 <body class="text-center">
@@ -46,23 +51,21 @@
         {{ message }}
       </div>
       <div class="row">
-        <div class="col-6">
-          <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+        <div id="short" class="col-6">
+          <transition-group name="position-list" tag="ul" class="list-group">
+            <li v-for="item in items" :key="item" class="list-group-item">
+              {{ item }}
+            </li>
+          </transition-group>
+          <button @click="shuffle" type="button" class="btn btn-primary">Sell</button>
         </div>
-        <div class="col-6">
-          <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+        <div id="long" class="col-6">
+          <transition-group name="position-list" tag="ul" class="list-group">
+            <li v-for="item in items" :key="item" class="list-group-item">
+              {{ item }}
+            </li>
+          </transition-group>
+          <button @click="shuffle" type="button" class="btn btn-danger">Buy</button>
         </div>
       </div>
     </main>
