@@ -47,9 +47,6 @@
     </header>
 
     <main role="main" class="inner cover">
-      <div id="app" class="demo">
-        {{ message }}
-      </div>
       <div class="row">
         <div id="short" class="col-6">
           <transition-group name="position-list" tag="ul" class="list-group">
@@ -66,6 +63,22 @@
             </li>
           </transition-group>
           <button @click="shuffle" type="button" class="btn btn-danger">Buy</button>
+        </div>
+      </div>
+      <div id="order" class="demo">
+        <div class="row">
+          <div class="col-3">
+            <button @click="sell"  type="button" class="btn btn-primary">Sell</button>
+          </div>
+          <div class="col-6">
+            <input v-model="price" class="form-control"/>
+          </div>
+          <div class="col-3">
+            <button @click="buy"  type="button" class="btn btn-danger">Buy</button>
+          </div>
+        </div>
+        <div class="row">
+          <p>Current price: {{ price }}</p>
         </div>
       </div>
     </main>
