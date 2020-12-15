@@ -47,38 +47,39 @@
     </header>
 
     <main role="main" class="inner cover">
-      <div class="row">
-        <div id="short" class="col-6">
-          <transition-group name="position-list" tag="ul" class="list-group">
-            <li v-for="item in items" :key="item" class="list-group-item">
-              {{ item }}
-            </li>
-          </transition-group>
-          <button @click="shuffle" type="button" class="btn btn-primary">Sell</button>
-        </div>
-        <div id="long" class="col-6">
-          <transition-group name="position-list" tag="ul" class="list-group">
-            <li v-for="item in items" :key="item" class="list-group-item">
-              {{ item }}
-            </li>
-          </transition-group>
-          <button @click="shuffle" type="button" class="btn btn-danger">Buy</button>
-        </div>
-      </div>
       <div id="order" class="demo">
-        <div class="row">
+        <div class="row mb-3">
+          <div id="short" class="col-6">
+            <transition-group name="position-list" tag="ul" class="list-group">
+              <li v-for="item in short" :key="item" class="list-group-item list-group-item-primary">
+                {{ item }}
+              </li>
+            </transition-group>
+          </div>
+          <div id="long" class="col-6">
+            <transition-group name="position-list" tag="ul" class="list-group">
+              <li v-for="item in long" :key="item" class="list-group-item list-group-item-danger">
+                {{ item }}
+              </li>
+            </transition-group>
+          </div>
+        </div>
+        <div class="row mb-3">
           <div class="col-3">
-            <button @click="sell"  type="button" class="btn btn-primary">Sell</button>
+            <button @click="sell_open" type="button" class="btn btn-primary">Sell</button>
           </div>
           <div class="col-6">
-            <input v-model="price" class="form-control"/>
+            <input v-model="price" class="form-control" />
           </div>
           <div class="col-3">
-            <button @click="buy"  type="button" class="btn btn-danger">Buy</button>
+            <button @click="buy_open" type="button" class="btn btn-danger">Buy</button>
           </div>
         </div>
-        <div class="row">
-          <p>Current price: {{ price }}</p>
+        <div class="row float-right">
+          <!-- <p>Current price: {{ price }}</p> -->
+          <div>
+            <button @click="reset" type="button" class="btn btn-warning">Reset</button>
+          </div>
         </div>
       </div>
     </main>
