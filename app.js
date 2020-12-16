@@ -29,3 +29,11 @@ const Order = {
 };
 
 Vue.createApp(Order).mount("#order");
+
+// leverage slider
+var slider = new Slider("#ex13", {
+  value: 1,
+  ticks: [0, 1, 2, 3, 4],
+  ticks_labels: ["x1", "x25", "x100", "x500", "x888"],
+  tooltip: "hide",
+});
