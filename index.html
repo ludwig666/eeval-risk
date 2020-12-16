@@ -66,14 +66,14 @@
         <div class="row mb-3">
           <div id="short" class="col-6">
             <transition-group name="position-list" tag="ul" class="list-group">
-              <li v-for="item in short" :key="item" class="list-group-item list-group-item-primary">
+              <li v-for="item in short" :key="item" class="list-group-item list-group-item-primary p-1">
                 {{ item.price }}@{{ item.lot }}
               </li>
             </transition-group>
           </div>
           <div id="long" class="col-6">
             <transition-group name="position-list" tag="ul" class="list-group">
-              <li v-for="item in long" :key="item" class="list-group-item list-group-item-danger">
+              <li v-for="item in long" :key="item" class="list-group-item list-group-item-danger p-1">
                 {{ item.price }}@{{ item.lot }}
               </li>
             </transition-group>
